@@ -1,0 +1,62 @@
+[
+    {
+      "regionName": "Beijing",
+      "number": 0,
+      "code":"0x1f1e8,0x1f1f3"
+    },
+    {
+      "regionName": "New York",
+      "number": -12,
+      "code":"0x1F1FA,0x1F1F8"
+    },
+    {
+      "regionName": "London",
+      "number": -8,
+      "code":"0x1F1EC,0x1F1E7"
+    },
+    {
+      "regionName": "Hong Kong",
+      "number": 0,
+      "code":"0x1f1e8,0x1f1f3"
+    },
+    {
+      "regionName": "Tokyo",
+      "number": 1,
+      "code":"0x1F1EF,0x1F1F5"
+    },
+    {
+      "regionName": "San Diego",
+      "number": -15,
+      "code":"0x1F1FA,0x1F1F8"
+    },
+    {
+      "regionName": "Paris",
+      "number": -6,
+      "code":"0x1F1EB,0x1F1F7"
+    },
+    {
+      "regionName": "Chicago",
+      "number": -13,
+      "code":"0x1F1FA,0x1F1F8"
+    },
+    {
+      "regionName": "Seoul",
+      "number": 1,
+      "code":"0x1F1F0,0x1F1F7"
+    },
+    {
+      "regionName": "Singapore",
+      "number": 0,
+      "code":"0x1F1F8,0x1F1EC"
+    },
+    {
+      "regionName": "Berlin",
+      "number": -7,
+      "code":"0x1F1E9,0x1F1EA"
+    },
+    {
+      "regionName": "Sydney",
+      "number": 2,
+      "code":"0x1F1E6,0x1F1FA"
+    }
+   ]
