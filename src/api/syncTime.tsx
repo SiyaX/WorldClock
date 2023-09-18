@@ -9,7 +9,7 @@ const syncTime = (): Promise<TimeResponse> => {
       () =>
         Math.random() < 0.3
           ? reject(new Error("Random Time Syncing Error!"))
-          : resolve({ value: new Date().toLocaleString() }),
+          : resolve({ value: new Date().toLocaleString("en-US") }),
       800
     );
   });

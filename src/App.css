@@ -82,6 +82,10 @@ ul {
   position: relative;
   padding: 0;
 }
+
+ul::-webkit-scrollbar{
+  display: none;
+}
 li{
   list-style-type: none;
 }

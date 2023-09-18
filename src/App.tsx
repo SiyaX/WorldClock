@@ -1,17 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+// import { useEffect } from "react";
 import "./App.css";
 import addTime from "./utils/addTime";
 import useInterval from "./utils/useInterval";
 import syncTime from "./api/syncTime";
 import BoxTable from "./components/BoxTable";
 
-function App() {
-  interface TimeResponse {
-    value: string; // 当前的时间，为2019-07-08T07:05:34.944Z格式
-  }
+interface TimeResponse {
+  value: string; // 当前的时间，为2019-07-08T07:05:34.944Z格式
+}
 
+function App() {
   const [localTime, setLocalTime] = useState<TimeResponse>({
-    value: new Date().toLocaleString(),
+    value: new Date().toLocaleString("en-US"),
   });
 
   // Update time every second
@@ -36,6 +37,7 @@ function App() {
   let updateTime = () => {
     setLocalTime(addTime(localTime, 1));
     clearInterval(interval);
+    // console.log(localTime);
   };
   var interval = setInterval(updateTime, 1000);
 
@@ -46,8 +48,15 @@ function App() {
         console.log("Sync Time" + result.value);
         setLocalTime(result);
       })
-      .catch((err) => alert(err));
+      .catch((err) => console.error(err));
   }, 60_000);
+
+  // window.addEventListener("focus", () => {
+  //   console.log("focused");
+  // });
+  // window.addEventListener("blur", () => {
+  //   console.log("Left");
+  // });
 
   return (
     <>
