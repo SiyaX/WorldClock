@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import addTime from "./utils/addTime";
 import useInterval from "./utils/useInterval";
@@ -15,9 +15,29 @@ function App() {
   });
 
   // Update time every second
-  useInterval(() => {
+  /* Two ways to write without using useInterval 
+    useInterval(() => {
+      setLocalTime(addTime(localTime, 1));
+    }, 1000); */
+
+  /* First */
+  // let interval;
+  // let updateTime = () => {
+  //   interval = setInterval(() => {
+  //     setLocalTime(addTime(localTime, 1));
+  //   }, 1000);
+  // };
+  // useEffect(() => {
+  //   updateTime();
+  //   return () => clearInterval(interval);
+  // }, [localTime]);
+
+  /*Second*/
+  let updateTime = () => {
     setLocalTime(addTime(localTime, 1));
-  }, 1000);
+    clearInterval(interval);
+  };
+  var interval = setInterval(updateTime, 1000);
 
   // Sync time every minute
   useInterval(() => {

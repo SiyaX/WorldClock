@@ -19,15 +19,15 @@ interface Props {
 }
 
 const BoxTable = ({ localTime }: Props) => {
-  //   const [regionList, setRegionList] = useState<RegionList>([]);
-  //   const [rowNum, setRowNum] = useState(1);
-
+  // Initialize region list
   const [regionList, setRegionList] = useState<RegionList>(
     JSON.parse(localStorage.getItem("regionSelected")) || []
   );
   const [rowNum, setRowNum] = useState(
     JSON.parse(localStorage.getItem("rowNum")) || 1
   );
+
+  // Define regionlist updating function
   const addRegion = (regionClicked: Region) => {
     let newRegionList = regionList.concat?.([regionClicked]);
     let newRowNum = Math.ceil((newRegionList.length + 1) / 3);
@@ -65,7 +65,7 @@ const BoxTable = ({ localTime }: Props) => {
       </tr>
     );
   }
-
+  // Last Row
   boxObj.push(
     <tr>
       {regionList?.length % 3 !== 0 && (
