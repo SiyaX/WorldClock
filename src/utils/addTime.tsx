@@ -14,7 +14,7 @@ const addTime = (
     value: moment(oldTime.value, "MM/DD/YYYY, hh:mm:ss a")
       .add(num, unit)
       .toDate()
-      .toLocaleString(),
+      .toLocaleString("en-US"),
   };
 };
 

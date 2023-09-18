@@ -52,41 +52,74 @@ const BoxTable = ({ localTime }: Props) => {
   };
 
   // Organize Table
-  const boxObj: ReactNode[] = [];
+  // const boxObj: ReactNode[] = [];
+  const boxArray = [...Array(rowNum - 1).keys()];
 
-  for (let i = 0; i < rowNum - 1; i++) {
-    boxObj.push(
-      <tr>
-        <Boxes
-          regionList={regionList.slice(3 * i, 3 * i + 3)}
-          localTime={localTime}
-          removeRegion={removeRegion}
-        />
-      </tr>
-    );
-  }
+  // for (let i = 0; i < rowNum - 1; i++) {
+  //   boxObj.push(
+  //     <tr>
+  //       <Boxes
+  //         regionList={regionList.slice(3 * i, 3 * i + 3)}
+  //         localTime={localTime}
+  //         removeRegion={removeRegion}
+  //       />
+  //     </tr>
+  //   );
+  // }
+
   // Last Row
-  boxObj.push(
-    <tr>
-      {regionList?.length % 3 !== 0 && (
-        <Boxes
-          regionList={regionList.slice?.(-regionList?.length % 3)}
-          localTime={localTime}
-          removeRegion={removeRegion}
-        />
-      )}
-      <td>
-        <AddBox addRegion={addRegion} />
-      </td>
-      {regionList.length % 3 === 1 && (
-        <td>
-          <BlankBox />
-        </td>
-      )}
-    </tr>
-  );
+  // boxObj.push(
+  //   <tr>
+  //     {regionList?.length % 3 !== 0 && (
+  //       <Boxes
+  //         regionList={regionList.slice?.(-regionList?.length % 3)}
+  //         localTime={localTime}
+  //         removeRegion={removeRegion}
+  //       />
+  //     )}
+  //     <td>
+  //       <AddBox addRegion={addRegion} />
+  //     </td>
+  //     {regionList.length % 3 === 1 && (
+  //       <td>
+  //         <BlankBox />
+  //       </td>
+  //     )}
+  //   </tr>
+  // );
 
-  return <tbody>{boxObj}</tbody>;
+  // return <tbody>{boxObj}</tbody>;
+
+  return (
+    <>
+      {boxArray.map((item) => (
+        <tr>
+          <Boxes
+            regionList={regionList.slice(3 * item, 3 * item + 3)}
+            localTime={localTime}
+            removeRegion={removeRegion}
+          />
+        </tr>
+      ))}
+      <tr>
+        {regionList?.length % 3 !== 0 && (
+          <Boxes
+            regionList={regionList.slice?.(-regionList?.length % 3)}
+            localTime={localTime}
+            removeRegion={removeRegion}
+          />
+        )}
+        <td>
+          <AddBox addRegion={addRegion} />
+        </td>
+        {regionList.length % 3 === 1 && (
+          <td>
+            <BlankBox />
+          </td>
+        )}
+      </tr>
+    </>
+  );
 };
 
 export default BoxTable;

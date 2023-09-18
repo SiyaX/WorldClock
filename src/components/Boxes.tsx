@@ -7,7 +7,7 @@ interface TimeResponse {
 }
 interface Region {
   regionName: string;
-  number: number;
+  timeDiff: number;
   code: number;
 }
 type RegionList = Region[] | {};
@@ -32,10 +32,12 @@ const Boxes = ({ regionList, localTime, removeRegion }: Props) => {
             </h2>
             <h3>
               {moment(
-                addTime(localTime, item.number, "h").value.split(",")[0]
+                addTime(localTime, item.timeDiff, "h").value.split(",")[0]
               ).format("YYYY-MM-DD")}
             </h3>
-            <h3>{addTime(localTime, item.number, "h").value.split(",")[1]}</h3>
+            <h3>
+              {addTime(localTime, item.timeDiff, "h").value.split(",")[1]}
+            </h3>
             <div
               className="closeSign"
               onClick={() => {

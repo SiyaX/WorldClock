@@ -3,7 +3,7 @@ import { useState } from "react";
 
 interface Region {
   regionName: String;
-  number: number;
+  timeDiff: number;
 }
 interface Props {
   addRegion: (regionClicked: Region) => void;
